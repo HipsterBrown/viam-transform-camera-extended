@@ -1,0 +1,24 @@
+{
+  "$schema": "https://dl.viam.dev/module.schema.json",
+  "module_id": "hipsterbrown:transform-camera-extended",
+  "visibility": "public",
+  "url": "https://github.com/hipsterbrown/viam-transform-camera-extended",
+  "description": "Modular camera component: transform-extended",
+  "models": [
+    {
+      "api": "rdk:component:camera",
+      "model": "hipsterbrown:camera:transform-extended"
+    }
+  ],
+  "entrypoint": "bin/transform-camera-extended",
+  "first_run": "",
+  "build": {
+    "build": "make module.tar.gz",
+    "setup": "make setup",
+    "path": "bin/module.tar.gz",
+    "arch": [
+      "linux/amd64",
+      "linux/arm64"
+    ]
+  }
+}

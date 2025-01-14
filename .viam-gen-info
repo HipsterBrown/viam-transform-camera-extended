@@ -1,0 +1,12 @@
+{
+  "module_name": "transform-camera-extended",
+  "namespace": "hipsterbrown",
+  "language": "go",
+  "resource_type": "component",
+  "resource_subtype": "camera",
+  "model_name": "transform-extended",
+  "enable_cloud_build": true,
+  "initialize_git": false,
+  "generator_version": "0.1.0",
+  "generated_on": "2025-01-14T16:36:50.559319Z"
+}
