@@ -2,8 +2,8 @@ BIN_OUTPUT_PATH = bin
 TOOL_BIN = bin/gotools/$(shell uname -s)-$(shell uname -m)
 UNAME_S ?= $(shell uname -s)
 GOPATH = $(HOME)/go/bin
-GOIMPORTS ?= $(shell which goimports)
 export PATH := ${PATH}:$(GOPATH)
+GOIMPORTS ?= $(shell which goimports)
 
 build: format update-rdk
 	rm -f $(BIN_OUTPUT_PATH)/transform-camera-extended
@@ -19,7 +19,7 @@ setup:
 	fi
 	# remove unused imports
 	# go install golang.org/x/tools/cmd/goimports@latest
-	find . -name '*.go' -exec $(GOIMPORTS) -w {} +
+	# find . -name '*.go' -exec $(GOIMPORTS) -w {} +
 
 
 clean:

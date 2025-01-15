@@ -14,6 +14,7 @@ type TransformType string
 const (
 	Resize     TransformType = "resize"
 	Brightness TransformType = "brightness"
+	Gamma      TransformType = "gamma"
 	Contrast   TransformType = "contrast"
 	Blur       TransformType = "blur"
 	Sharpen    TransformType = "sharpen"
@@ -35,6 +36,10 @@ type ResizeParams struct {
 }
 
 type BrightnessParams struct {
+	Amount float64 `json:"amount"`
+}
+
+type GammaParams struct {
 	Amount float64 `json:"amount"`
 }
 
@@ -65,7 +70,7 @@ func ApplyTransform(img *image.NRGBA, transform Transform) (*image.NRGBA, error)
 		if !ok {
 			return nil, fmt.Errorf("invalid height parameter")
 		}
-		return imaging.Resize(img, int(width), int(height), imaging.Lanczos), nil
+		return imaging.Resize(img, int(width), int(height), imaging.CatmullRom), nil
 
 	case Brightness:
 		amount, ok := transform.Params["amount"].(float64)
@@ -73,6 +78,13 @@ func ApplyTransform(img *image.NRGBA, transform Transform) (*image.NRGBA, error)
 			return nil, fmt.Errorf("invalid amount parameter")
 		}
 		return imaging.AdjustBrightness(img, amount), nil
+
+	case Gamma:
+		amount, ok := transform.Params["amount"].(float64)
+		if !ok {
+			return nil, fmt.Errorf("invalid amount parameter")
+		}
+		return imaging.AdjustGamma(img, amount), nil
 
 	case Contrast:
 		amount, ok := transform.Params["amount"].(float64)
