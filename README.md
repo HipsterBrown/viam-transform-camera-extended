@@ -6,7 +6,7 @@ This [module](https://docs.viam.com/registry/modular-resources/) implements the 
 
 This module assumes you have an existing camera component, like a [webcam](https://docs.viam.com/operate/reference/components/camera/webcam/) or [CSI camera](https://docs.viam.comhttps//github.com/viam-modules/csi-camera/).
 
-## Configure your pi-ai-camera vision service
+## Configure your transform-extended camera component
 
 Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
 [Add `hipsterbrown:transform-camera-extended` to your machine](https://docs.viam.com/configure/#components).
